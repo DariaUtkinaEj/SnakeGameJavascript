@@ -2,6 +2,45 @@ let field = document.createElement('div');
 document.body.appendChild(field);
 field.classList.add('field');
 
+let speed = 200;
+
+const buttonEasy = document.querySelector('.button.easy');
+const buttonNormal = document.querySelector('.button.normal');
+const buttonHard = document.querySelector('.button.hard');
+const buttonExtreme = document.querySelector('.button.extreme');
+
+buttonEasy.addEventListener('click', function(e) {
+    speed = 1000;
+    clearInterval(interval);
+    interval = setInterval(() => {
+        move();
+    }, speed);
+});
+
+buttonNormal.addEventListener('click', function(e) {
+    speed = 500;
+    clearInterval(interval);
+    interval = setInterval(() => {
+        move();
+    }, speed);
+});
+
+buttonHard.addEventListener('click', function(e) {
+    speed = 200;
+    clearInterval(interval);
+    interval = setInterval(() => {
+        move();
+    }, speed);
+});
+
+buttonExtreme.addEventListener('click', function(e) {
+    speed = 80;
+    clearInterval(interval);
+    interval = setInterval(() => {
+        move();
+    }, speed);
+});
+
 for (let i=1; i<101; i++) {
     let excel = document.createElement('div');
     field.appendChild(excel);
@@ -126,7 +165,26 @@ function move() {
         snakeBody[0].style.backgroundSize = "cover";
     }
 
-    snakeBody[0].classList.add('head');
+    if (direction === 'right') {
+        snakeBody[0].classList.add('head');
+        snakeBody[0].classList.add('direction-right');
+    }
+
+    if (direction === 'left') {
+        snakeBody[0].classList.add('head');
+        snakeBody[0].classList.add('direction-left');
+    }
+
+    if (direction === 'up') {
+        snakeBody[0].classList.add('head');
+        snakeBody[0].classList.add('direction-up');
+    }
+
+    if (direction === 'down') {
+        snakeBody[0].classList.add('head');
+        snakeBody[0].classList.add('direction-down');
+    }
+
     for (let i = 0; i < snakeBody.length; i++) {
         snakeBody[i].classList.add('snakeBody');
     }
@@ -134,23 +192,48 @@ function move() {
     steps = true;
 }
 
-let interval = setInterval(move, 300);
+// let interval = setInterval(move, 300);
+
+let interval = setInterval(() => {
+    move();
+}, speed);
 
 window.addEventListener('keydown', function (e) {
+    e.preventDefault();
     if (steps = true) {
         if (e.keyCode == 37 && direction!= 'right') {
+            const head = document.querySelector('.head');
+            head.classList.remove('direction-right');
+            head.classList.add('direction-left');
+            head.classList.remove('direction-up');
+            head.classList.remove('direction-down');
             direction = 'left';
             steps = false;
         }
         else if (e.keyCode == 38 && direction!= 'down') {
+            const head = document.querySelector('.head');
+            head.classList.remove('direction-right');
+            head.classList.remove('direction-left');
+            head.classList.add('direction-up');
+            head.classList.remove('direction-down');
             direction = 'up';
             steps = false;
         }
         else if (e.keyCode == 39 && direction!= 'left') {
+            const head = document.querySelector('.head');
+            head.classList.add('direction-right');
+            head.classList.remove('direction-left');
+            head.classList.remove('direction-up');
+            head.classList.remove('direction-down');
             direction = 'right';
             steps = false;
         }
         else if (e.keyCode == 40 && direction!= 'up') {
+            const head = document.querySelector('.head');
+            head.classList.remove('direction-right');
+            head.classList.remove('direction-left');
+            head.classList.remove('direction-up');
+            head.classList.add('direction-down');
             direction = 'down';
             steps = false;
         }
