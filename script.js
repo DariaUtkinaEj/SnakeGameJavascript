@@ -49,7 +49,7 @@ function createMouse() {
     let mouseCoordinates = generateMouse();
     mouse = document.querySelector('[posX = "' + mouseCoordinates[0] + '"][posY = "' + mouseCoordinates[1] + '"]');
 
-    while(mouse.classList.contains('snakeBody')) {
+    while(mouse.classList.contains('snakeBody') || mouse.classList.contains('mouse')) {
         let mouseCoordinates = generateMouse();
         mouse = document.querySelector('[posX = "' + mouseCoordinates[0] + '"][posY = "' + mouseCoordinates[1] + '"]');
     }
