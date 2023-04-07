@@ -2,9 +2,10 @@
 
 # https://just-for-fun-myapps.ru/snake/
 
-Сontrol the snake with keyboard arrows and eat as many mice as possible!
+Control the snake with keyboard arrows and eat as many mice as possible!
 
-![img.png](img.png)
-=======
+![img_1.png](img_1.png)
+
+
 
 
