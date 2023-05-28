@@ -3,16 +3,27 @@
 }
 
 body {
-    margin: 100px;
+    background-color: #000000;
+    margin: auto;
+    width: 500px;
+    padding: 10px;
+    image-rendering: pixelated;
 }
 
+.container {
+    background-color: #000000;
+    font-family: "Courier New", monospace !important;
+    width: 500px;
+    margin: auto;
+}
 .field {
     width: 500px;
     height: 500px;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     display: flex;
     flex-wrap: wrap;
-    background-color: #cccccc;
+    background-color: #000000;
+    outline: 1px solid #00ff00
 }
 
 .excel {
@@ -24,7 +35,6 @@ body {
 .snakeBody {
     background: url(scale.jpeg);
     background-size: cover;
-    border-radius: 50%;
 }
 
 .head {
@@ -56,7 +66,7 @@ body {
     background: url(mouse.png);
     background-size: cover;
 }
-.modal {
+/* .modal {
     position: fixed;
     text-transform: uppercase;
     width: 500px;
@@ -65,9 +75,19 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #fff;
-}
+} */
+.modal {
+    text-transform: uppercase;
+    width: 300px;
+    height: 100px;
+    /* transform: translate(-50%, -50%); */
+    color: #90ef75;
+    margin: auto;
+  }
+.modal h1 {
 
-.button {
+}
+/* .button {
     border: 2px solid tomato;
     width: 300px;
     text-align: center;
@@ -76,8 +96,18 @@ body {
     cursor: pointer;
     font-size: 25px;
     transition: all .3s;
-}
-
+} */
+.button {
+    border: 2px solid #90ef75;
+    width: 300px;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 30px 0;
+    cursor: pointer;
+    font-size: 25px;
+    transition: all .3s;
+    color: #90ef75;
+  }
 .button:hover
 {
     border-radius: 40px;
@@ -90,4 +120,47 @@ body {
     height: 100%;
     z-index: 2;
     background-color: tomato;
+}
+.score {
+    background-color: #000;
+    color:#90ef75;
+    border: none;
+    font-size: 2em;
+    width: 400px;
+    /* display: flex; */
+    margin: auto;
+    text-align: center;
+    align-items: center;
+}
+
+.popup {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0);
+    display: none;
+}
+.popup-content {
+    background-color: rgb(0, 0, 0, 0);
+    margin: 10% auto;
+    width: 600px;
+    font-weight: bolder;
+    box-shadow: 0px 0px 100px 100px rgba(117, 18, 0, 0.3);
+}
+.popup-content img {
+    width: 600px;
+}
+.popup-content button {
+    display: block;
+    margin: 0 auto;
+}
+.show {
+    display: block;
+}
+h1 {
+    color: green;
 }

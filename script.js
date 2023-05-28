@@ -121,17 +121,12 @@ function startGame() {
     let direction = 'right';
     let steps = true;
 
-    let input = document.createElement('input');
-    document.body.appendChild(input);
-    input.style.cssText = `
-margin: auto;
-margin-top: 40px;
-font-size: 30px;
-display:block;
-`;
+    let label = document.createElement('div');
+    document.body.appendChild(label);
+    label.className = "score"
 
     let score = 0;
-    input.value = `Ваши очки: ${score}`;
+    label.innerHTML = `Ваши очки: ${score}`;
 
     function move() {
         let snakeCoordinates = [snakeBody[0].getAttribute('posX'), snakeBody[0].getAttribute('posY')];
@@ -177,7 +172,9 @@ display:block;
 
         if (snakeBody[0].classList.contains('snakeBody')) {
             setTimeout(() => {
-                alert(`Game Over! Ваши очки: ${score}`);
+                // alert(`Game Over! Ваши очки: ${score}`);
+                myPopup.classList.add("show");
+                field.style.display = "none";
             }, 200);
 
             clearInterval(interval);
@@ -256,6 +253,14 @@ display:block;
             }
         }
 
+    });
+    closePopup.addEventListener("click", function () {
+        window.location.reload();
+    });
+    window.addEventListener("click", function (event) {
+        if (event.target == myPopup) {
+            myPopup.classList.remove("show");
+        }
     });
 }
 
